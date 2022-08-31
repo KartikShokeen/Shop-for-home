@@ -167,7 +167,7 @@ INSERT INTO ecommerce.product_category VALUES (2147483644, 'Lamps', 3, '2022-08-
 INSERT INTO ecommerce.users VALUES (2147483645, true, 'KukatPally Phase 19, Hyderabad', 'admin@gmail.com', 'Admin', '$2a$10$LiBwO43TpKU0sZgCxNkWJueq2lqxoUBsX2Wclzk8JQ3Ejb9MWu2Xy', '1234567890', 'ROLE_MANAGER');
 
 
-CREATE TABLE IF NOT EXISTS `hibernate_sequence`;
+DROP TABLE IF EXISTS `hibernate_sequence`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hibernate_sequence` (
