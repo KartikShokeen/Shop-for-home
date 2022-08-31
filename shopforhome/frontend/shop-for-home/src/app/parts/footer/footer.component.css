@@ -1,0 +1,36 @@
+footer ul li a {
+  color: #fff;
+}
+footer {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  background-color: rgba(6, 18, 102, 0.988);;
+  animation: gradient 5s ease infinite;
+	
+}
+footer a{
+  align-items: center;
+  justify-content: center;
+}
+footer li a {
+  color: #313131;
+  font-weight: 500;
+  text-decoration: none;
+}
+footer ul li {
+  display: inline-block;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

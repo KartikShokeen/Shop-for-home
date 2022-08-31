@@ -1,0 +1,3 @@
+ProductId,ProductName,Price,Stock,Description,ProductIcon,CategoryType
+ A0001,Lamp,50.5,70,Discription is written,assets/images/products/Lightings/light1.png,2
+ A0002,Lamp 2,47.6,80,Discription is written,assets/images/products/Lightings/light2.png,2

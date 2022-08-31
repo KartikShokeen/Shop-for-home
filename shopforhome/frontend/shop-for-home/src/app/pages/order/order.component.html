@@ -1,0 +1,44 @@
+<h1 class="display-4 text-center bg-light mb-5 font-weight-bold">Orders</h1>
+
+<table class="table text-center h4">
+  <thead>
+    <tr>
+      <th scope="col">Order #</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Customer Email</th>
+      <th scope="col">Customer Phone</th>
+      <th scope="col">Shipping Address</th>
+      <th scope="col">Total</th>
+      <th scope="col">Order Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let order of page?.content">
+      <th class="align-middle" scope="row">
+        {{order.orderId}}
+      </th>
+      <td class="align-middle">{{order.buyerName}}</td>
+      <td class="align-middle">{{order.buyerEmail}}</td>
+      <td class="align-middle">{{order.buyerPhone}}</td>
+      <td class="align-middle">{{order.buyerAddress}}</td>
+      <td class="align-middle">{{order.orderAmount | currency}}</td>
+      <td class="align-middle">{{order.createTime | date}}</td>
+      <td class="align-middle">{{OrderStatus[order.orderStatus]}}</td>
+      <td class="align-middle">
+        <a *ngIf="!(currentUser.role == Role.Customer && currentUser.name == order.buyerEmail)"
+          class="btn btn-outline-info btn-lg d-block mb-2 font-weight-bold" routerLink="/order/{{order.orderId}}">
+          Show</a>
+        <a *ngIf="order.orderStatus == 0" class="btn btn-outline-danger btn-lg d-block mb-2 font-weight-bold" (click)="cancel(order)"
+          routerLink="./">Cancel</a>
+        <a *ngIf="currentUser.role == Role.Manager && order.orderStatus == 0"
+          class="btn btn-outline-success btn-lg d-block font-weight-bold" (click)="finish(order)" routerLink="./">
+          Finish</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-pagination [currentPage]="page"></app-pagination>

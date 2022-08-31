@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg ">
+  <a class="navbar-brand mb-0 mt-2" [routerLink]="root">
+    ShopForHome
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-nav" *ngIf="!currentUser || currentUser.role == Role.Customer">
+      <a class="nav-item nav-link mr-2" routerLink="/category/0">
+      Furniture 
+      </a>
+      <a class="nav-item nav-link mr-2" routerLink="/category/1">
+      Garden Decor
+      </a>
+      <a class="nav-item nav-link mr-2" routerLink="/category/2">
+      Wall Decor
+      </a>
+      <a class="nav-item nav-link" routerLink="/category/3">
+      Lamps
+      </a>
+    </div>
+
+    <div class="navbar-nav ml-auto">
+      <a *ngIf="!currentUser || currentUser.role == Role.Customer" class="nav-item btn btn-outline-primary mr-2"
+        routerLink="/cart">
+        Cart 
+      </a>
+      <div class="navbar-nav" *ngIf="currentUser && currentUser.role == Role.Manager">
+        <a class="nav-item btn btn-outline-secondary mr-4" routerLink="/discount">Discount</a>
+        <a class="nav-item btn btn-outline-secondary mr-4" (click)=getUsers() routerLink="/admin/user">Users</a>
+        <a class="nav-item btn btn-outline-secondary mr-4" routerLink="/seller/product">Stocks </a>
+      </div>
+      <div class="navbar-nav" *ngIf="currentUser && currentUser.role == Role.Customer">
+        <a class="nav-item btn btn-outline-secondary mr-4 ml-4" routerLink="/wishlist">Wishlist</a>
+      </div>
+
+      <ng-container *ngIf="currentUser; else noUser">
+        <a class="nav-item btn btn-outline-success mr-2" routerLink="/order">
+          Orders
+        </a>
+        <a class="nav-item nav-link mr-2 " routerLink="/profile">
+          {{name}}
+        </a>
+        <a class="nav-item btn btn-outline-danger" (click)="logout()" routerLink="/login" [queryParams]="{logout: true}">
+          Logout
+        </a>
+      </ng-container>
+      <ng-template #noUser>
+        <a class="nav-item btn btn-outline-success ml-4" routerLink="/login">
+          Login
+        </a>
+        <a class="nav-item btn btn-outline-success ml-4" routerLink="/register">
+          Register
+        </a>
+      </ng-template>
+    </div>
+  </div>
+</nav>

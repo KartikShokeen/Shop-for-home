@@ -1,0 +1,46 @@
+<div >
+<h1 class="display-4 text-center bg-light mb-5 font-weight-bold login-container">Login</h1>
+<div  style="width:40%; margin: 25px auto">
+
+  <div class="alert alert-danger font-weight-bold h4" *ngIf="isInvalid">
+    Invalid username and password.
+  </div>
+  <div class="alert alert-info font-weight-bold h4" *ngIf="isLogout">
+    You have been logged out.
+  </div>
+
+  <form #form='ngForm' (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label class="h4 font-weight-bold">Email address</label>
+      <input type="text" class="form-control form-control-lg font-weight-bold" id="email" name="email"
+        placeholder="Enter email" required autofocus [(ngModel)]="model.username" #email="ngModel" autocomplete="email">
+      <div [hidden]="email.valid || email.untouched" class="alert alert-danger h5 font-weight-bold">
+        Email is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="h4 font-weight-bold">Password</label>
+      <input type="password" class="form-control form-control-lg font-weight-bold" id="password" name="password"
+        autocomplete="password" placeholder="Password" required [(ngModel)]="model.password" #password='ngModel'>
+      <div [hidden]="password.valid || password.untouched" class="alert alert-danger h5 font-weight-bold">
+        Password is required
+      </div>
+    </div>
+
+    <div class="form-group mt-4">
+      <input type="checkbox" id="remember_me" name="remember-me" [(ngModel)]="model.remembered">
+      <label for="remember_me" class="inline ml-1 mb-4">Remember me</label>
+      <a class="float-right font-weight-bold" routerLink="/register">New User? click to Register</a>
+    </div>
+
+    <div class="form-group">
+      <button [disabled]="!form.form.valid" type="submit"
+        class="btn btn-lg font-weight-bold btn-success btn-block">Login</button>
+    </div>
+  </form>
+   </div>
+
+
+
+</div>
