@@ -1,3 +1,10 @@
+/**
+ * @author Kartik Shokeen
+ * Modified date 30/8/2022
+ * Description :The class User
+ * Instantiates a new User details
+ * 
+ */
 package com.wipro.springboot.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

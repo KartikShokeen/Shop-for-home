@@ -1,3 +1,9 @@
+/**
+ *  * @author Venkata Sai Chekuri
+ * Modified date 30/8/2022
+ * Description :The class Product
+ * Instantiates a new Product placed for order
+ */
 package com.wipro.springboot.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

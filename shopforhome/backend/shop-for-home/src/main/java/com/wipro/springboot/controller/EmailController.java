@@ -1,3 +1,8 @@
+/**
+ * @author Rongali Jaswant Kumar
+ * Modified date 30/8/2022
+ * Description :Email Controller Class
+ */
 package com.wipro.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +23,6 @@ public class EmailController {
 	public String sendMail(@RequestBody Email email) {
 		String status = emailService.sendSimpleMail(email);
 
-		return status;
-	}
-
-	@PostMapping("/sendMailWithAttachment")
-	public String sendMailWithAttachment(@RequestBody Email email) {
-		String status = emailService.sendMailWithAttachment(email);
 		return status;
 	}
 

@@ -1,3 +1,10 @@
+/**
+ *  * @author Venkata Sai Chekuri
+ * Modified date 30/8/2022
+ * Description :The class Product
+ * Instantiates a new Product
+ * 
+ */
 package com.wipro.springboot.entity;
 
 import lombok.Data;

@@ -1,3 +1,10 @@
+/** 
+ * @author 	RONGALI JASWANTH KUMAR
+ * Modified date 30/8/2022
+ * Description :The class Email
+ * Instantiates a new Email
+ 
+ */
 package com.wipro.springboot.entity;
 
 public class Email {
@@ -5,7 +12,6 @@ public class Email {
 	private String recipient;
 	private String msgBody;
 	private String subject;
-	private String attachment;
 
 	public String getRecipient() {
 		return recipient;
@@ -31,13 +37,6 @@ public class Email {
 		this.subject = subject;
 	}
 
-	public String getAttachment() {
-		return attachment;
-	}
-
-	public void setAttachment(String attachment) {
-		this.attachment = attachment;
-	}
 
 	Email() {
 
@@ -47,7 +46,6 @@ public class Email {
 		this.recipient = recipient;
 		this.msgBody = msgBody;
 		this.subject = subject;
-		this.attachment = attachment;
 	}
 
 }

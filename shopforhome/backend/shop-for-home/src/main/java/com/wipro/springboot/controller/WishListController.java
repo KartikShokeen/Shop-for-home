@@ -1,3 +1,8 @@
+/**
+ * @author Dhanuja A
+ * Modified date 30/8/2022
+ * Description :WishlistController Class
+ */
 package com.wipro.springboot.controller;
 
 import java.security.Principal;

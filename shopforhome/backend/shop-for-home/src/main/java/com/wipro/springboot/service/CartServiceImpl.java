@@ -1,3 +1,8 @@
+/**
+ * @author Dhanuja A
+ * Modified date 30/8/2022
+ * Description :Implementation of ICartService Interface 
+ */
 package com.wipro.springboot.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +47,16 @@ public class CartServiceImpl implements ICartService {
 	public Cart getCart(User user) {
 		return user.getCart();
 	}
-
+	
+	/**
+	 * @author Dhanuja A
+	 * Modified date 30/8/2022
+	 * Description saves a new/update cart
+	 * param ProductInOrder entity and User Entity
+	 * return type void
+	 * exception none
+	 * 
+	 */
 	@Override
 	@Transactional
 	public void mergeLocalCart(Collection<ProductInOrder> productInOrders, User user) {
@@ -65,7 +79,15 @@ public class CartServiceImpl implements ICartService {
 		cartRepository.save(finalCart);
 
 	}
-
+	/**
+	 * @author Dhanuja A
+	 * Modified date 30/8/2022
+	 * Description deletes a item from Cart
+	 * param itemId, User entity
+	 * return type void
+	 * exception none
+	 * 
+	 */
 	@Override
 	@Transactional
 	public void delete(String itemId, User user) {
@@ -75,7 +97,15 @@ public class CartServiceImpl implements ICartService {
 			productInOrderRepository.deleteById(productInOrder.getId());
 		});
 	}
-
+	
+	/**
+	 * @author Dhanuja A
+	 * Modified date 30/8/2022
+	 * Description: clears cart and saves order in DB
+	 * param: user entity
+	 * return type void
+	 * exception none
+	 */
 	@Override
 	@Transactional
 	public void checkout(User user) {

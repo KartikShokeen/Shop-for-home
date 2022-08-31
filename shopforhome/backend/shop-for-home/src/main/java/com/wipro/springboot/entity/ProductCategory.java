@@ -1,3 +1,9 @@
+/**
+ *  * @author P V SURYASATHWIK
+ * Modified date 30/8/2022
+ * Description :The class ProductCategory
+ * Instantiates a new Category for products
+ */
 package com.wipro.springboot.entity;
 
 import lombok.Data;

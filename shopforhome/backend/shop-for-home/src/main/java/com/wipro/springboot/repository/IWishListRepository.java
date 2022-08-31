@@ -1,3 +1,10 @@
+/**
+ *  * @author Dhanuja A
+ * Modified date 30/8/2022
+ * Description :The class IWishListRepository
+ * Saves or fetches Wishlist in DB
+ * 
+ */
 package com.wipro.springboot.repository;
 
 import org.springframework.data.domain.Page;

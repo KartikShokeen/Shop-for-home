@@ -1,3 +1,10 @@
+/**
+ * * @author Kartik Shokeen
+ * Modified date 30/8/2022
+ * Description :The class Order
+ * Instantiates a new Order 
+ * 
+ */
 package com.wipro.springboot.entity;
 
 import org.hibernate.annotations.ColumnDefault;

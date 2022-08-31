@@ -1,3 +1,8 @@
+/**
+ * * @author Kartik Shokeen
+ * Modified date 30/8/2022
+ * Description :Implementation of IUserService Interface
+ */
 package com.wipro.springboot.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,17 +35,38 @@ public class UserServiceImpl implements IUserService {
 
 	@Autowired
 	ICartRepository cartRepository;
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: to find user by email
+	 * param email
+	 * return type user
+	 * Exception none
+	 */
 	@Override
 	public User findOne(String email) {
 		return userRepository.findByEmail(email);
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: to find user by role
+	 * param role
+	 * return user
+	 * Exception none
+	 */
 	@Override
 	public Collection<User> findByRole(String role) {
 		return userRepository.findAllByRole(role);
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: to save user
+	 * param user
+	 * return user
+	 * Exception run time exception
+	 */
 	@Override
 	@Transactional
 	public User save(User user) {
@@ -57,7 +83,14 @@ public class UserServiceImpl implements IUserService {
 		}
 
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: to update a user
+	 * param user
+	 * return user
+	 * Exception run time exception
+	 */
 	@Override
 	@Transactional
 	public User update(User user) {
@@ -68,19 +101,40 @@ public class UserServiceImpl implements IUserService {
 		oldUser.setAddress(user.getAddress());
 		return userRepository.save(oldUser);
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: to find all the users
+	 * param none
+	 * return list
+	 * Exception none
+	 */
 	@Override
 	@Transactional
 	public List<User> findAll() {
 		return userRepository.findAll();
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: to update userID
+	 * param userid
+	 * return object
+	 * Exception run time exception
+	 */
 	@Override
 	@Transactional
 	public Object update(Long userId) {
 		return null;
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: to update role to manager(admin)
+	 * param user
+	 * return user
+	 * Exception none
+	 */
 	@Override
 	@Transactional
 	public User update(String email) {
@@ -89,13 +143,27 @@ public class UserServiceImpl implements IUserService {
 
 		return userRepository.save(user);
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: to find all the users
+	 * param request
+	 * return page
+	 * Exception none
+	 */
 	@Override
 	@Transactional
 	public Page<User> findAll(PageRequest request) {
 		return userRepository.findAll(request);
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: to update role to user
+	 * param user
+	 * return user
+	 * Exception none
+	 */
 	@Override
 	@Transactional
 	public User removeAdmin(String email) {
@@ -104,7 +172,14 @@ public class UserServiceImpl implements IUserService {
 
 		return userRepository.save(user);
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: to remove a user
+	 * param email
+	 * return void
+	 * Exception none
+	 */
 	@Override
 	public void removeUser(String email) {
 		User user = findOne(email);

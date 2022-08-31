@@ -1,3 +1,8 @@
+/**
+ * @author Kartik Shokeen
+ * Modified date 30/8/2022
+ * Description :Implementation of IOrderService Interface
+ */
 package com.wipro.springboot.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,17 +39,39 @@ public class OrderServiceImpl implements IOrderService {
 
 	@Autowired
 	IProductInOrderRepository productInOrderRepository;
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: fetches all the placed order
+	 * param pageable
+	 * return type page
+	 * Exception none
+	 */
 	@Override
 	public Page<Order> findAll(Pageable pageable) {
 		return orderRepository.findAllByOrderByOrderStatusAscCreateTimeDesc(pageable);
 	}
-
+	
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: fetches all the placed order based on status
+	 * param pageable
+	 * return type page
+	 * Exception none
+	 */
 	@Override
 	public Page<Order> findByStatus(Integer status, Pageable pageable) {
 		return orderRepository.findAllByOrderStatusOrderByCreateTimeDesc(status, pageable);
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: fetches all the placed order for a user
+	 * param pageable
+	 * return type page
+	 * Exception none
+	 */
 	@Override
 	public Page<Order> findByBuyerEmail(String email, Pageable pageable) {
 		return orderRepository.findAllByBuyerEmailOrderByOrderStatusAscCreateTimeDesc(email, pageable);
@@ -54,7 +81,14 @@ public class OrderServiceImpl implements IOrderService {
 	public Page<Order> findByBuyerPhone(String phone, Pageable pageable) {
 		return orderRepository.findAllByBuyerPhoneOrderByOrderStatusAscCreateTimeDesc(phone, pageable);
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: fetches a specific user based on orderID
+	 * param pageable
+	 * return type page
+	 * Exception Run time exception - order not found
+	 */
 	@Override
 	public Order findOne(Long orderId) {
 		Order orderMain = orderRepository.findByOrderId(orderId);
@@ -63,7 +97,14 @@ public class OrderServiceImpl implements IOrderService {
 		}
 		return orderMain;
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: find a order by order id and update status to finish
+	 * param pageable
+	 * return type page
+	 * Exception Run time exception - order not found
+	 */
 	@Override
 	@Transactional
 	public Order finish(Long orderId) {
@@ -76,7 +117,14 @@ public class OrderServiceImpl implements IOrderService {
 		orderRepository.save(order);
 		return orderRepository.findByOrderId(orderId);
 	}
-
+	/**
+	 * @author Kartik Shokeen
+	 * Modified Date 30/8/2022
+	 * Description: find a order by order id and update status to cancel
+	 * param pageable
+	 * return type page
+	 * Exception Run time exception - order status error
+	 */
 	@Override
 	@Transactional
 	public Order cancel(Long orderId) {

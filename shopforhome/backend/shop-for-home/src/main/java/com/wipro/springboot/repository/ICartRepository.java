@@ -1,3 +1,10 @@
+/**
+ * @author Dhanuja A
+ * Modified date 30/8/2022
+ * Description :The class ICartRepository
+ * Saves and gets data from DB
+ 
+ */
 package com.wipro.springboot.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

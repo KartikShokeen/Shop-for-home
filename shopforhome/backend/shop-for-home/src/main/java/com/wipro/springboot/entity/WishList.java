@@ -1,3 +1,9 @@
+/**
+ * @author Dhanuja A
+ * Modified date 30/8/2022
+ * Description :The class Wishlist
+ * Instantiates a new Wishlist for a user 
+ */
 package com.wipro.springboot.entity;
 
 import java.io.Serializable;

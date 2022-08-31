@@ -1,3 +1,9 @@
+/**
+ *  @author Venkata Sai Chekuri
+ * Modified date 30/8/2022
+ * Description :the Class IProductRepository
+ * saves or fetches product into in DB
+ */
 package com.wipro.springboot.repository;
 
 import org.springframework.data.domain.Page;

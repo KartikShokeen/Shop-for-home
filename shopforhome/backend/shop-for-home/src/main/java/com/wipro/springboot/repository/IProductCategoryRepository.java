@@ -1,3 +1,11 @@
+/**
+ * @author Venkata Sai Chekuri
+ * Modified date 30/8/2022
+ * Description :the Class IProductCategoryRepository
+ * saves or fetches category of products in DB
+ * 
+ *
+ */
 package com.wipro.springboot.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

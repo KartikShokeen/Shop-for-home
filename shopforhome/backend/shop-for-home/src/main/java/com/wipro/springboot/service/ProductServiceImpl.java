@@ -1,3 +1,8 @@
+/**
+ * @author Venkata Sai Chekuri
+ * Modified date 30/8/2022
+ * Description :Implementation of IProductService Interface
+ */
 package com.wipro.springboot.service;
 
 import java.util.List;
@@ -22,29 +27,65 @@ public class ProductServiceImpl implements IProductService {
 
 	@Autowired
 	IProductCategoryService categoryService;
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to find a specific order by product id
+	 * param productId
+	 * return product entity
+	 * Exception none
+	 */
 	@Override
 	public Product findOne(String productId) {
 
 		Product product = productRepository.findByProductId(productId);
 		return product;
 	}
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to find all order by status of order
+	 * param pageable
+	 * return type page
+	 * Exception none
+	 */
 	@Override
 	public Page<Product> findUpAll(Pageable pageable) {
 		return productRepository.findAllByProductStatusOrderByProductIdAsc(ProductStatusEnum.UP.getCode(), pageable);
 	}
-
+	
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to find all orders
+	 * param pageable
+	 * return page
+	 * Exception none
+	 */
 	@Override
 	public Page<Product> findAll(Pageable pageable) {
 		return productRepository.findAllByOrderByProductId(pageable);
 	}
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to find all product by category
+	 * param categoryType,pageable
+	 * return page
+	 * Exception none
+	 */
 	@Override
 	public Page<Product> findAllInCategory(Integer categoryType, Pageable pageable) {
 		return productRepository.findAllByCategoryTypeOrderByProductIdAsc(categoryType, pageable);
 	}
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to increase the stock of product
+	 * param productId , amount
+	 * return void
+	 * Exception run time exception
+	 */
 	@Override
 	@Transactional
 	public void increaseStock(String productId, int amount) {
@@ -56,7 +97,14 @@ public class ProductServiceImpl implements IProductService {
 		product.setProductStock(update);
 		productRepository.save(product);
 	}
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to decrease the stock of product
+	 * param productId , amount
+	 * return void
+	 * Exception run time exception
+	 */
 	@Override
 	@Transactional
 	public void decreaseStock(String productId, int amount) {
@@ -71,7 +119,14 @@ public class ProductServiceImpl implements IProductService {
 		product.setProductStock(update);
 		productRepository.save(product);
 	}
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to set the status of product
+	 * param productId 
+	 * return void
+	 * Exception run time exception
+	 */
 	@Override
 	@Transactional
 	public Product offSale(String productId) {
@@ -86,7 +141,14 @@ public class ProductServiceImpl implements IProductService {
 		product.setProductStatus(ProductStatusEnum.DOWN.getCode());
 		return productRepository.save(product);
 	}
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to set the status of product
+	 * param productId 
+	 * return void
+	 * Exception run time exception
+	 */
 	@Override
 	@Transactional
 	public Product onSale(String productId) {
@@ -101,7 +163,14 @@ public class ProductServiceImpl implements IProductService {
 		product.setProductStatus(ProductStatusEnum.UP.getCode());
 		return productRepository.save(product);
 	}
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to update the product category
+	 * param product entity
+	 * return void
+	 * Exception run time exception
+	 */
 	@Override
 	public Product update(Product product) {
 
@@ -112,12 +181,26 @@ public class ProductServiceImpl implements IProductService {
 
 		return productRepository.save(product);
 	}
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to save a product
+	 * param product entity 
+	 * return void
+	 * Exception none
+	 */
 	@Override
 	public Product save(Product product) {
 		return update(product);
 	}
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to delete a product
+	 * param productId 
+	 * return void
+	 * Exception run time exception
+	 */
 	@Override
 	public void delete(String productId) {
 		Product product = findOne(productId);
@@ -126,7 +209,14 @@ public class ProductServiceImpl implements IProductService {
 		productRepository.delete(product);
 
 	}
-
+	/**
+	 * @author Venkata Sai Chekuri
+	 * Modified Date 30/8/2022
+	 * Description: to find all products
+	 * param none 
+	 * return list
+	 * Exception 
+	 */
 	@Override
 	@Transactional
 	public List<Product> findAll() {

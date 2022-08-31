@@ -1,3 +1,10 @@
+/**
+ * @author Dhanuja A
+ * Modified date 30/8/2022
+ * Description :The class cart
+ * Instantiates a new cart for a User
+ * 
+ */
 package com.wipro.springboot.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -1,3 +1,9 @@
+/**
+ * @author Kartik Shokeen
+ * Modified date 30/8/2022
+ * Description :The class IUserRepository
+ * Saves or fetches user info in DB
+ */
 package com.wipro.springboot.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

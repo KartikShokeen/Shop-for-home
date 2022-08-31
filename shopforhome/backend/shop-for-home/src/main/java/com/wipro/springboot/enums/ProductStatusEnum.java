@@ -1,3 +1,9 @@
+/**
+ * @author Venkata 
+ * Modified date 30/8/2022
+ * Description :The class ProductStatusEnum
+ * if product is available or not 
+ */
 package com.wipro.springboot.enums;
 
 import lombok.Getter;

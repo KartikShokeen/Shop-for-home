@@ -1,3 +1,8 @@
+/**
+ * @author Rongali Jaswant Kumar
+ * The class Discount
+ * Instantiates a new Discount Coupon
+ */
 package com.wipro.springboot.entity;
 
 import javax.persistence.Column;

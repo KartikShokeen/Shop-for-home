@@ -1,3 +1,9 @@
+/**
+ * @author Kartik Shokeen
+ * Modified date 30/8/2022
+ * Description :The class OrderStatusEnum 
+ * get the status of a placed order
+ */
 package com.wipro.springboot.enums;
 
 public enum OrderStatusEnum implements CodeEnum {

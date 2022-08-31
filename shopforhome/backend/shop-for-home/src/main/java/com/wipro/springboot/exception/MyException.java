@@ -1,3 +1,10 @@
+/**
+ * @author Kartik Shokeen
+ * Modified date 30/8/2022
+ * Description :MyException Class
+ * used to custom handle few runtimeException
+
+ */
 package com.wipro.springboot.exception;
 
 import com.wipro.springboot.enums.ResultEnum;

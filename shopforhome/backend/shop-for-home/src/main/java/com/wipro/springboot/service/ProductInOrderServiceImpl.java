@@ -1,3 +1,8 @@
+/**
+ * @author PV Suryasathwik
+ * * Modified date 30/8/2022
+ * Description :Implementation of IProductInOrderService
+ */
 package com.wipro.springboot.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +20,14 @@ public class ProductInOrderServiceImpl implements IProductInOrderService {
 
 	@Autowired
 	IProductInOrderRepository productInOrderRepository;
-
+	/**
+	 * @author PV Suryasathwik
+	 * Modified Date 30/8/2022
+	 * Description: update the quantity of product in cart
+	 * param itemid ,quantity ,user entity
+	 * return type void
+	 * Exception none
+	 */
 	@Override
 	@Transactional
 	public void update(String itemId, Integer quantity, User user) {
@@ -26,7 +38,14 @@ public class ProductInOrderServiceImpl implements IProductInOrderService {
 		});
 
 	}
-
+	/**
+	 * @author PV Suryasathwik
+	 * Modified Date 30/8/2022
+	 * Description: to find a specific order
+	 * param itemid  ,user entity
+	 * return type ProductInOrder entity
+	 * Exception none
+	 */
 	@Override
 	public ProductInOrder findOne(String itemId, User user) {
 		var op = user.getCart().getProducts().stream().filter(e -> itemId.equals(e.getProductId())).findFirst();

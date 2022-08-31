@@ -1,3 +1,8 @@
+/**
+ * @author PV Surasathwik
+ * Modified date 30/8/2022
+ * Description : the CSVServiceImpl class 
+ */
 package com.wipro.springboot.service;
 
 import java.io.IOException;
@@ -16,7 +21,14 @@ public class CSVServiceImpl {
 
 	@Autowired
 	IProductRepository repository;
-
+	/**
+	 * @author PV Surasathwik
+	 * Modified date 30/8/2022
+	 * Description: saves the csv file into DB
+	 * param uploaded Csv File
+	 * return type none
+	 * exception RuntimeException-fail to store csv data:
+	 */
 	public void save(MultipartFile file) {
 		try {
 			List<Product> tutorials = CSVHelper.csvToTutorials(file.getInputStream());
